@@ -1,0 +1,15 @@
+services:
+  warehouse-api:
+    build: .
+    image: aftersales-warehouse-api:1.0.0
+    container_name: aftersales-warehouse-api
+    ports:
+      - "8000:8000"
+    environment:
+      WAREHOUSE_DB: /data/warehouse.db
+    volumes:
+      - warehouse-data:/data
+    restart: unless-stopped
+
+volumes:
+  warehouse-data:
